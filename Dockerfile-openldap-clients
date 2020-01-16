@@ -1,0 +1,8 @@
+FROM registry.access.redhat.com/ubi8/ubi
+
+RUN PACKAGE_LIST="openldap-clients" && \
+    yum install -y $PACKAGE_LIST && \
+    rpm -V $PACKAGE_LIST && \
+    yum clean all -y
+
+USER 1001
